@@ -6,7 +6,7 @@ module.exports = {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    entry: './dist/app.js',
+    entry: './demos/app.js',
     output: {
         filename: 'demo.js',
         path: path.resolve(__dirname, 'dist'),

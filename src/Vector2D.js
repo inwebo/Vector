@@ -55,31 +55,68 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     negative() {
-        return new Vector2D(-this.getX(), -this.getY());
+        this._x = -this._x;
+        this._y = -this._y;
     }
 
     /**
      * @param {Vector2D} vector
      * @return {Vector2D}
      */
-    add(vector) {
-        return new Vector2D(this.getX() + vector.getX(), this.getY() + vector.getY());
+    static negative(vector) {
+        return new Vector2D(-vector.getX(), -vector.getY());
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static add(vector1, vector2) {
+        return new Vector2D(vector1.getX() + vector2.getX(), vector1.getY() + vector2.getY());
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static substract(vector1, vector2) {
+        return new Vector2D(vector1.getX() - vector2.getX(), vector1.getY() - vector2.getY());
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static multiply(vector1, vector2) {
+        return new Vector2D(vector1.getX() * vector2.getX(), vector1.getY() * vector2.getY());
     }
 
     /**
      * @param {Vector2D} vector
      * @return {Vector2D}
      */
-    substract(vector) {
-        return new Vector2D(this.getX() - vector.getX(), this.getY() - vector.getY());
+     multiply(vector) {
+
     }
 
     /**
      * @param {Vector2D} vector
      * @return {Vector2D}
      */
-    multiply(vector) {
-        return new Vector2D(this.getX() * vector.getX(), this.getY() * vector.getY());
+    static multiply(vector) {
+
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static divide(vector1, vector2) {
+        return new Vector2D(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY());
     }
 
     /**
@@ -87,7 +124,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     divide(vector) {
-        return new Vector2D(this.getX() / vector.getX(), this.getY() / vector.getY());
+
     }
 
     /**
@@ -99,8 +136,9 @@ export default class Vector2D {
     }
 
     /**
+     * @see https://en.wikipedia.org/wiki/Dot_product
      * @param {Vector2D} vector
-     * @return {number}
+     * @return {number} Dot product
      */
     dot(vector) {
         return this.getX() * vector.getX() + this.getY() * vector.getY();
@@ -108,19 +146,25 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
-     * @return {Vector2D}
+     * @return {number}
      */
     cross(vector) {
-        return new Vector2D(
-
-        );
+        return (this.getX() * vector.getY() ) - (this.getY() * vector.getX());
     }
 
     /**
      * @return {number}
      */
-    length() {
+    magnitude() {
         return Math.sqrt(this.dot(this));
+    }
+
+    /**
+     * @alias magnitude
+     * @return {number}
+     */
+    length() {
+        return this.magnitude();
     }
 
     // region utility
@@ -159,7 +203,7 @@ export default class Vector2D {
     /**
      * @param {Vector2D} vector
      */
-    copy(vector) {
+    merge(vector) {
         this._x = vector.getX();
         this._y = vector.getY();
     }
