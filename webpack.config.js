@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     entry: {
         vector: './src/main.js',
-        demo: './demos/demo.js'
+        demo: './demos/demo.js',
+        test: './test/tests.js',
     },
     output: {
         filename: '[name].min.js',
