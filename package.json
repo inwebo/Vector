@@ -26,6 +26,6 @@
     "lodash": "^4.17.15"
   },
   "scripts": {
-    "test": "mocha dist/test.min.js"
+    "test": "webpack && mocha dist/test.min.js"
   }
 }
