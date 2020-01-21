@@ -1,6 +1,13 @@
 # Vector
 Simple ES6 2D vector representation.
 
+## Installation
+
+## Tests
+```shell script
+qunit
+``` 
+
 ## Links
 
 * [Cross product](https://en.wikipedia.org/wiki/Cross_product)

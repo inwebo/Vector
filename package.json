@@ -1,18 +1,20 @@
 {
   "name": "vector",
   "version": "0.0.1",
-  "description": "Simple particles simulator, extensive use of vanilla js & canvas",
-  "main": "src/index.js",
+  "description": "Simple E6 class for common vectors operations",
+  "main": "src/main.js",
   "keywords": [
     "ES6",
     "vector"
   ],
   "author": "inwebo-veritas",
-  "license": "GNU GENERAL PUBLIC LICENSE",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "qunit": "^2.9.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
