@@ -5,7 +5,7 @@ Simple ES6 2D vector representation.
 
 ## Tests
 ```shell script
-qunit
+yarn test
 ``` 
 
 ## Links
