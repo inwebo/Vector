@@ -1,5 +1,5 @@
 # Vector
-Simple vector
+Simple ES6 2D vector representation.
 
 ## Links
 
