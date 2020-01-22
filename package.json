@@ -14,6 +14,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
     "qunit": "^2.9.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
@@ -26,6 +27,6 @@
     "lodash": "^4.17.15"
   },
   "scripts": {
-    "test": "webpack && mocha dist/test.min.js"
+    "test": "webpack --mode development && mocha dist/test.min.js"
   }
 }
