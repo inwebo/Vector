@@ -1,3 +1,5 @@
+import Vector2DValidator from "./Vector2DValidator";
+
 export default class Vector2D {
     // region getters/setters
     /**
@@ -45,7 +47,6 @@ export default class Vector2D {
      */
     static fromObject(object) {
         object = object || {};
-
         return new Vector2D(object.x||0, object.y||0);
     }
 
@@ -68,6 +69,7 @@ export default class Vector2D {
      * @param {Vector2D} vector
      */
     static zero(vector) {
+        Vector2DValidator.validate(vector);
         vector._x = 0;
         vector._y = 0;
     }
@@ -84,6 +86,7 @@ export default class Vector2D {
      * @return {boolean|boolean}
      */
     static isZero(vector) {
+        Vector2DValidator.validate(vector);
         return vector.getX() === 0 && vector.getY() === 0;
     }
 
@@ -100,6 +103,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static negative(vector) {
+        Vector2DValidator.validate(vector);
         return new Vector2D(-vector.getX(), -vector.getY());
     }
 
@@ -107,6 +111,7 @@ export default class Vector2D {
      * @param {Vector2D} vector
      */
     add(vector) {
+        Vector2DValidator.validate(vector);
         this._x = this.getX() + vector.getX();
         this._y = this.getY() + vector.getY();
     }
@@ -117,6 +122,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static add(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return new Vector2D(vector1.getX() + vector2.getX(), vector1.getY() + vector2.getY());
     }
 
@@ -124,6 +130,7 @@ export default class Vector2D {
      * @param {Vector2D} vector
      */
     substract(vector) {
+        Vector2DValidator.validate(vector);
         this._x = this.getX() - vector.getX();
         this._y = this.getY() - vector.getY();
     }
@@ -134,6 +141,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static substract(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return new Vector2D(vector1.getX() - vector2.getX(), vector1.getY() - vector2.getY());
     }
 
@@ -141,6 +149,7 @@ export default class Vector2D {
      * @param {Vector2D} vector
      */
     multiply(vector) {
+        Vector2DValidator.validate(vector);
         this._x = this.getX() * vector.getX();
         this._y = this.getY() * vector.getY();
     }
@@ -151,6 +160,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static multiply(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return new Vector2D(vector1.getX() * vector2.getX(), vector1.getY() * vector2.getY());
     }
 
@@ -159,6 +169,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     divide(vector) {
+        Vector2DValidator.validate(vector);
         this._x = this.getX() / vector.getX();
         this._y = this.getY() / vector.getY();
     }
@@ -169,6 +180,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static divide(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return new Vector2D(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY());
     }
 
@@ -177,6 +189,7 @@ export default class Vector2D {
      * @return {boolean}
      */
     equals(vector) {
+        Vector2DValidator.validate(vector);
         return this.getX() === vector.getX() && this.getY() === vector.getY();
     }
 
@@ -186,6 +199,7 @@ export default class Vector2D {
      * @return {boolean}
      */
     static equals(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return vector1.getX() === vector2.getX() && vector1.getY() === vector2.getY();
     }
 
@@ -195,6 +209,7 @@ export default class Vector2D {
      * @return {number} Dot product
      */
     dot(vector) {
+        Vector2DValidator.validate(vector);
         return this.getX() * vector.getX() + this.getY() * vector.getY();
     }
 
@@ -203,6 +218,7 @@ export default class Vector2D {
      * @param {Vector2D} vector2
      */
     static dot(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY();
     }
 
@@ -211,6 +227,7 @@ export default class Vector2D {
      * @return {number}
      */
     cross(vector) {
+        Vector2DValidator.validate(vector);
         return (this.getX() * vector.getY()) - (this.getY() * vector.getX());
     }
 
@@ -219,6 +236,7 @@ export default class Vector2D {
      * @param {Vector2D} vector2
      */
     static cross(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return (vector1.getX() * vector2.getY()) - (vector1.getY() * vector2.getX());
     }
 
@@ -235,6 +253,7 @@ export default class Vector2D {
      * @return {number}
      */
     static magnitude(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return Math.sqrt(Vector2D.dot(vector1, vector2));
     }
 
@@ -250,6 +269,7 @@ export default class Vector2D {
      * @return {number}
      */
     static magnitudeSq(vector) {
+        Vector2DValidator.validate(vector);
         return vector.getX() * vector.getX() + vector.getY() * vector.getY();
     }
 
@@ -268,6 +288,7 @@ export default class Vector2D {
      * @return {number}
      */
     static length(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
         return Vector2D.magnitude(vector1, vector2);
     }
 
@@ -276,6 +297,7 @@ export default class Vector2D {
      * @return {number}
      */
     distanceX(vector) {
+        Vector2DValidator.validate(vector);
         return this.getX() - vector.getX();
     }
 
@@ -284,6 +306,7 @@ export default class Vector2D {
      * @return {number}
      */
     distanceXAbs(vector) {
+        Vector2DValidator.validate(vector);
         return Math.abs(this.distanceX(vector));
     }
 
@@ -292,6 +315,7 @@ export default class Vector2D {
      * @return {number}
      */
     distanceY(vector) {
+        Vector2DValidator.validate(vector);
         return this.getY() - vector.getY();
     }
 
@@ -300,6 +324,7 @@ export default class Vector2D {
      * @return {number}
      */
     distanceYAbs(vector) {
+        Vector2DValidator.validate(vector);
         return Math.abs(this.distanceY(vector));
     }
 
@@ -308,6 +333,7 @@ export default class Vector2D {
      * @return {number}
      */
     distance(vector) {
+        Vector2DValidator.validate(vector);
         return Math.sqrt(this.distanceSq(vector));
     }
 
@@ -316,6 +342,7 @@ export default class Vector2D {
      * @return {number}
      */
     distanceSq(vector) {
+        Vector2DValidator.validate(vector);
         return this.distanceX(vector) * this.distanceX(vector) + this.distanceY(vector) * this.distanceY(vector);1
     }
 
@@ -381,6 +408,7 @@ export default class Vector2D {
      * @param {Vector2D} vector
      */
     merge(vector) {
+        Vector2DValidator.validate(vector);
         this._x = vector.getX();
         this._y = vector.getY();
     }
