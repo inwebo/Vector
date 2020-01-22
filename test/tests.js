@@ -2,6 +2,7 @@ import Vector2D from "../src/Vector2D";
 
 const assert = require('assert');
 const expect = require('chai').expect;
+const chai = require('chai');
 
 
 describe('Vector contructor', () => {
@@ -185,6 +186,105 @@ describe('Vector zeroing', () => {
         it('Vector2D.negative(v)', () => {
             assert.equal(v.getX(), 15);
             assert.equal(v.getY(), 50);
+        });
+    });
+});
+
+
+describe('Vector operations', () => {
+    describe('let v1 = new Vector2D(5, 7); let v2 = new Vector2D(4, 2);', () => {
+        let v1 = new Vector2D(5, 7);
+        let v2 = new Vector2D(4, 2);
+
+        v1.add(v2);
+
+        it('v.getX() = 9; v.getY() = 9', () => {
+            assert.equal(v1.getX(), 9);
+            assert.equal(v1.getY(), 9);
+        });
+    });
+
+    describe('let v1 = new Vector2D(5, 7); let v2 = new Vector2D(4, 2); let v3 = Vector2D.add(v1, v2);', () => {
+        let v1 = new Vector2D(5, 7);
+        let v2 = new Vector2D(4, 2);
+        let v3 = Vector2D.add(v1, v2);
+
+        it('v.getX() = 9; v.getY() = 9', () => {
+            assert.equal(v3.getX(), 9);
+            assert.equal(v3.getY(), 9);
+        });
+    });
+
+    describe('let v1 = new Vector2D(13, 57); let v2 = new Vector2D(3, 47); v1.substract(v2);', () => {
+        let v1 = new Vector2D(13, 57);
+        let v2 = new Vector2D(3, 47);
+        v1.substract(v2);
+
+        it('v.getX() = 10; v.getY() = 10', () => {
+            assert.equal(v1.getX(), 10);
+            assert.equal(v1.getY(), 10);
+        });
+    });
+
+    describe('let v1 = new Vector2D(13, 57); let v2 = new Vector2D(3, 47); let v3 = Vector2D.substract(v1, v2);', () => {
+        let v1 = new Vector2D(13, 57);
+        let v2 = new Vector2D(3, 47);
+        let v3 = Vector2D.substract(v1, v2);
+
+        it('v3.getX() = 10; v3.getY() = 10', () => {
+            assert.equal(v3.getX(), 10);
+            assert.equal(v3.getY(), 10);
+        });
+    });
+
+    describe('let v1 = new Vector2D(12, 48); let v2 = new Vector2D(8, 4); v1.multiply(v2)', () => {
+        let v1 = new Vector2D(12, 48);
+        let v2 = new Vector2D(8, 4);
+        v1.multiply(v2);
+
+        it('v1.getX() = 96; v1.getY() = 192', () => {
+            assert.equal(v1.getX(), 96);
+            assert.equal(v1.getY(), 192);
+        });
+    });
+
+    describe('let v1 = new Vector2D(12, 48); let v2 = new Vector2D(8, 4); let v3 = Vector2D.multiply(v1, v2)', () => {
+        let v1 = new Vector2D(12, 48);
+        let v2 = new Vector2D(8, 4);
+        let v3 = Vector2D.multiply(v1, v2);
+
+        it('v3.getX() = 96; v3.getY() = 192', () => {
+            assert.equal(v3.getX(), 96);
+            assert.equal(v3.getY(), 192);
+        });
+    });
+
+    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); v1.divide(v2);', () => {
+        it('v1.getX() = 5; v1.getY() = 3', () => {
+            let v1 = new Vector2D(10, 9);
+            let v2 = new Vector2D(2, 3);
+            v1.divide(v2);
+
+            assert.equal(v1.getX(), 5);
+            assert.equal(v1.getY(), 3);
+        });
+    });
+
+    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);', () => {
+        it('v1.getX() = 5; v1.getY() = 3', () => {
+            let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);
+
+            assert.equal(v3.getX(), 5);
+            assert.equal(v3.getY(), 3);
+        });
+    });
+
+    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); v1.equals(v2);', () => {
+        it('v1.equals(v2)', () => {
+            let v1 = new Vector2D(10, 9);
+            let v2 = new Vector2D(10, 9);
+
+            assert.isTrue(v1.equals(v2));
         });
     });
 });
