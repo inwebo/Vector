@@ -29,7 +29,13 @@ export default class Vector2D {
      * @param {Array} array
      * @return {Vector2D}
      */
-    static fromArray(array) {
+    static fromArray(array = []) {
+        array = array || [];
+
+        if(!Array.isArray(array)) {
+            throw new TypeError(`Vector.fromArray() arg is not an array, type was '${typeof array}'`);
+        }
+
         return new Vector2D(array[0]||0, array[1]||0);
     }
 
