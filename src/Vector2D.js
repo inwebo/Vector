@@ -142,7 +142,7 @@ export default class Vector2D {
      */
     multiply(vector) {
         this._x = this.getX() * vector.getX();
-        this._y = this.getX() * vector.getY();
+        this._y = this.getY() * vector.getY();
     }
 
     /**
@@ -160,7 +160,7 @@ export default class Vector2D {
      */
     divide(vector) {
         this._x = this.getX() / vector.getX();
-        this._y = this.getX() / vector.getY();
+        this._y = this.getY() / vector.getY();
     }
 
     /**
