@@ -44,6 +44,8 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static fromObject(object) {
+        object = object || {};
+
         return new Vector2D(object.x||0, object.y||0);
     }
 
@@ -56,14 +58,6 @@ export default class Vector2D {
         this._y = y;
     }
     // endregion constructors
-
-    /**
-     * @return {Vector2D}
-     */
-    negative() {
-        this._x = -this._x;
-        this._y = -this._y;
-    }
 
     zero() {
         this._x = 0;
@@ -91,6 +85,14 @@ export default class Vector2D {
      */
     static isZero(vector) {
         return vector.getX() === 0 && vector.getY() === 0;
+    }
+
+    /**
+     * @return {Vector2D}
+     */
+    negative() {
+        this._x = -this._x;
+        this._y = -this._y;
     }
 
     /**
