@@ -190,7 +190,6 @@ describe('Vector zeroing', () => {
     });
 });
 
-
 describe('Vector operations', () => {
     describe('let v1 = new Vector2D(5, 7); let v2 = new Vector2D(4, 2);', () => {
         let v1 = new Vector2D(5, 7);
@@ -284,7 +283,40 @@ describe('Vector operations', () => {
             let v1 = new Vector2D(10, 9);
             let v2 = new Vector2D(10, 9);
 
-            assert.isTrue(v1.equals(v2));
+            assert.equal(v1.equals(v2), true);
+        });
+    });
+
+    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
+        it(' Vector2D.equals(v1, v2)', () => {
+            let v1 = new Vector2D(10, 9);
+            let v2 = new Vector2D(10, 9);
+
+            assert.equal(Vector2D.equals(v1, v2), true);
+        });
+    });
+
+    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
+        it(' Vector2D.equals(v1, v2)', () => {
+            let v1 = new Vector2D(10, 9);
+            let v2 = new Vector2D(10, 9);
+
+            assert.equal(Vector2D.equals(v1, v2), true);
+        });
+    });
+});
+
+
+describe('Exceptions bad args', () => {
+    describe('let v1 = []; Vector2D.zero(v1)', () => {
+        it('throw error', () => {
+            let v1 = '';
+
+            expect(() => {
+                Vector2D.zero(v1)
+            })
+                .to
+                .throw();
         });
     });
 });
