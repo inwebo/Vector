@@ -214,9 +214,9 @@ describe('Vector zeroing', () => {
 });
 
 describe('Vector operations', () => {
-    describe('let v1 = new Vector2D(5, 7); let v2 = new Vector2D(4, 2);', () => {
-        let v1 = new Vector2D(5, 7);
-        let v2 = new Vector2D(4, 2);
+    describe('const v1 =  new Vector2D(5, 7); const v2 =  new Vector2D(4, 2);', () => {
+        const v1 =  new Vector2D(5, 7);
+        const v2 =  new Vector2D(4, 2);
 
         v1.add(v2);
 
@@ -226,9 +226,9 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(5, 7); let v2 = new Vector2D(4, 2); let v3 = Vector2D.add(v1, v2);', () => {
-        let v1 = new Vector2D(5, 7);
-        let v2 = new Vector2D(4, 2);
+    describe('const v1 =  new Vector2D(5, 7); const v2 =  new Vector2D(4, 2); let v3 = Vector2D.add(v1, v2);', () => {
+        const v1 =  new Vector2D(5, 7);
+        const v2 =  new Vector2D(4, 2);
         let v3 = Vector2D.add(v1, v2);
 
         it('v.getX() = 9; v.getY() = 9', () => {
@@ -237,9 +237,9 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(13, 57); let v2 = new Vector2D(3, 47); v1.substract(v2);', () => {
-        let v1 = new Vector2D(13, 57);
-        let v2 = new Vector2D(3, 47);
+    describe('const v1 =  new Vector2D(13, 57); const v2 =  new Vector2D(3, 47); v1.substract(v2);', () => {
+        const v1 =  new Vector2D(13, 57);
+        const v2 =  new Vector2D(3, 47);
         v1.substract(v2);
 
         it('v.getX() = 10; v.getY() = 10', () => {
@@ -248,9 +248,9 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(13, 57); let v2 = new Vector2D(3, 47); let v3 = Vector2D.substract(v1, v2);', () => {
-        let v1 = new Vector2D(13, 57);
-        let v2 = new Vector2D(3, 47);
+    describe('const v1 =  new Vector2D(13, 57); const v2 =  new Vector2D(3, 47); let v3 = Vector2D.substract(v1, v2);', () => {
+        const v1 =  new Vector2D(13, 57);
+        const v2 =  new Vector2D(3, 47);
         let v3 = Vector2D.substract(v1, v2);
 
         it('v3.getX() = 10; v3.getY() = 10', () => {
@@ -259,9 +259,9 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(12, 48); let v2 = new Vector2D(8, 4); v1.multiply(v2)', () => {
-        let v1 = new Vector2D(12, 48);
-        let v2 = new Vector2D(8, 4);
+    describe('const v1 =  new Vector2D(12, 48); const v2 =  new Vector2D(8, 4); v1.multiply(v2)', () => {
+        const v1 =  new Vector2D(12, 48);
+        const v2 =  new Vector2D(8, 4);
         v1.multiply(v2);
 
         it('v1.getX() = 96; v1.getY() = 192', () => {
@@ -270,9 +270,9 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(12, 48); let v2 = new Vector2D(8, 4); let v3 = Vector2D.multiply(v1, v2)', () => {
-        let v1 = new Vector2D(12, 48);
-        let v2 = new Vector2D(8, 4);
+    describe('const v1 =  new Vector2D(12, 48); const v2 =  new Vector2D(8, 4); let v3 = Vector2D.multiply(v1, v2)', () => {
+        const v1 =  new Vector2D(12, 48);
+        const v2 =  new Vector2D(8, 4);
         let v3 = Vector2D.multiply(v1, v2);
 
         it('v3.getX() = 96; v3.getY() = 192', () => {
@@ -281,10 +281,10 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); v1.divide(v2);', () => {
+    describe('const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(2, 3); v1.divide(v2);', () => {
         it('v1.getX() = 5; v1.getY() = 3', () => {
-            let v1 = new Vector2D(10, 9);
-            let v2 = new Vector2D(2, 3);
+            const v1 =  new Vector2D(10, 9);
+            const v2 =  new Vector2D(2, 3);
             v1.divide(v2);
 
             assert.equal(v1.getX(), 5);
@@ -292,61 +292,77 @@ describe('Vector operations', () => {
         });
     });
 
-    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);', () => {
+    describe('const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);', () => {
         it('v1.getX() = 5; v1.getY() = 3', () => {
-            let v1 = new Vector2D(10, 9); let v2 = new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);
+            const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(2, 3); let v3 = Vector2D.divide(v1, v2);
 
             assert.equal(v3.getX(), 5);
             assert.equal(v3.getY(), 3);
         });
     });
 
-    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); v1.equals(v2);', () => {
+    describe('const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(10, 9); v1.equals(v2);', () => {
         it('v1.equals(v2)', () => {
-            let v1 = new Vector2D(10, 9);
-            let v2 = new Vector2D(10, 9);
+            const v1 =  new Vector2D(10, 9);
+            const v2 =  new Vector2D(10, 9);
 
             assert.equal(v1.equals(v2), true);
         });
     });
 
-    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
+    describe('const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
         it(' Vector2D.equals(v1, v2)', () => {
-            let v1 = new Vector2D(10, 9);
-            let v2 = new Vector2D(10, 9);
+            const v1 =  new Vector2D(10, 9);
+            const v2 =  new Vector2D(10, 9);
 
             assert.equal(Vector2D.equals(v1, v2), true);
         });
     });
 
-    describe('let v1 = new Vector2D(10, 9); let v2 = new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
+    describe('const v1 =  new Vector2D(10, 9); const v2 =  new Vector2D(10, 9); Vector2D.equals(v1, v2);', () => {
         it(' Vector2D.equals(v1, v2)', () => {
-            let v1 = new Vector2D(10, 9);
-            let v2 = new Vector2D(10, 9);
+            const v1 =  new Vector2D(10, 9);
+            const v2 =  new Vector2D(10, 9);
 
             assert.equal(Vector2D.equals(v1, v2), true);
         });
     });
 
-    /**
-     * @todo
-     */
-    describe('let v1 = new Vector2D(10.05, 9.59);v1.round();', () => {
+    describe('const v1 =  new Vector2D(10.05, 9.59);v1.round();', () => {
         it(' Vector2D.equals(v1, v2)', () => {
-            let v1 = new Vector2D(10.05, 9.59);
+            const v1 =  new Vector2D(10.05, 9.59);
             v1.round();
 
             assert.equal(v1.getX() === 10, true);
             assert.equal(v1.getY() === 10, true);
         });
     });
+
+    describe('const v1 =  new Vector2D(10.05, 9.59);v1.floo();', () => {
+        it(' Vector2D.equals(v1, v2)', () => {
+            const v1 =  new Vector2D(10.05, 9.59);
+            v1.floor();
+
+            assert.equal(v1.getX() === 10, true);
+            assert.equal(v1.getY() === 9, true);
+        });
+    });
+
+    describe('const v1 =  new Vector2D(5, 5);v1.magnitude();', () => {
+        it(' Vector2D.equals(v1, v2)', () => {
+            const v1        = new Vector2D(5, 5);
+            const magnitude = Math.sqrt(Math.pow(v1.getX(), 2) + Math.pow(v1.getY(), 2));
+
+            assert.equal(v1.magnitude(), magnitude);
+        });
+    });
 });
 
 
 describe('Exceptions bad args', () => {
-    describe('let v1 = []; Vector2D.zero(v1)', () => {
+    describe('const v1 =  []; Vector2D.zero(v1)', () => {
         it('throw error', () => {
-            let v1 = '';
+            const v1 =  '';
 
             expect(() => {
                 Vector2D.zero(v1)
@@ -356,9 +372,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = []; Vector2D.isZero(v1)', () => {
+    describe('const v1 =  []; Vector2D.isZero(v1)', () => {
         it('throw error', () => {
-            let v1 = '';
+            const v1 =  '';
 
             expect(() => {
                 Vector2D.isZero(v1)
@@ -368,9 +384,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = []; Vector2D.negative(v1)', () => {
+    describe('const v1 =  []; Vector2D.negative(v1)', () => {
         it('throw error', () => {
-            let v1 = '';
+            const v1 =  '';
 
             expect(() => {
                 Vector2D.negative(v1)
@@ -380,9 +396,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.add(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.add(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.add(v2);
@@ -392,9 +408,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.add(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.add(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.add(v1, v2);
@@ -404,9 +420,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.substract(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.substract(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.substract(v2);
@@ -416,9 +432,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.substract(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.substract(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.substract(v1, v2);
@@ -428,9 +444,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.multiply(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.multiply(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.multiply(v2);
@@ -440,9 +456,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.multiply(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.multiply(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.multiply(v1, v2);
@@ -452,9 +468,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.divide(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.divide(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.divide(v2);
@@ -464,9 +480,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.divide(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.divide(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.divide(v1, v2);
@@ -476,9 +492,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.equals(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.equals(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.equals(v2);
@@ -488,9 +504,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.divide(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.divide(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.equals(v1, v2);
@@ -500,9 +516,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.dot(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.dot(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.dot(v2);
@@ -512,9 +528,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.dot(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.dot(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.dot(v1, v2);
@@ -524,9 +540,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.cross(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.cross(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.cross(v2);
@@ -537,9 +553,9 @@ describe('Exceptions bad args', () => {
     });
 
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.cross(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.cross(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.magnitude(v1, v2);
@@ -549,9 +565,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = []; Vector2D.magnitudeSq(v1);', () => {
+    describe('const v1 =  []; Vector2D.magnitudeSq(v1);', () => {
         it('throw error', () => {
-            let v1 = [];
+            const v1 =  [];
 
             expect(() => {
                 Vector2D.magnitudeSq(v1);
@@ -561,9 +577,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; Vector2D.length(v1, v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; Vector2D.length(v1, v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 Vector2D.length(v1, v2);
@@ -573,9 +589,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distanceX(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distanceX(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distanceX(v2);
@@ -585,9 +601,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distanceXAbs(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distanceXAbs(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distanceXAbs(v2);
@@ -597,9 +613,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distanceY(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distanceY(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distanceY(v2);
@@ -609,9 +625,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distanceYAbs(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distanceYAbs(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distanceYAbs(v2);
@@ -621,9 +637,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distance(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distance(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distance(v2);
@@ -633,9 +649,9 @@ describe('Exceptions bad args', () => {
         });
     });
 
-    describe('let v1 = new Vector2D();let v2 = []; v1.distanceSq(v2);', () => {
+    describe('const v1 =  new Vector2D();const v2 =  []; v1.distanceSq(v2);', () => {
         it('throw error', () => {
-            let v1 = new Vector2D();let v2 = [];
+            const v1 =  new Vector2D();const v2 =  [];
 
             expect(() => {
                 v1.distanceSq(v2);
@@ -643,5 +659,40 @@ describe('Exceptions bad args', () => {
                 .to
                 .throw();
         });
+    });
+});
+
+describe('Utilities', () => {
+    describe('const v1 =  new Vector2D();const v2 =  new Vector2D(1, 1); v1.copy(v2);', () => {
+        const v1 = new Vector2D();
+        const v2 = new Vector2D(1, 1);
+        v1.copy(v2);
+
+        assert.equal(v1.getX(), v2.getX());
+        assert.equal(v1.getY(), v2.getY());
+    });
+
+    describe('const v1 =  new Vector2D(157.5, 207);const v2 =  v1.clone();', () => {
+        const v1 =  new Vector2D(157.5, 207);
+        const v2 = v1.clone();
+
+        assert.equal(v1.getX(), v2.getX());
+        assert.equal(v1.getY(), v2.getY());
+    });
+
+    describe('const v1 =  new Vector2D(157.5, 207);const array =  v1.toArray();', () => {
+        const v1 =  new Vector2D(157.5, 207);
+        const v2 = v1.toArray();
+
+        assert.equal(v1.getX(), v2[0]);
+        assert.equal(v1.getY(), v2[1]);
+    });
+
+    describe('const v1 =  new Vector2D(157.5, 207);const array =  v1.toObject();', () => {
+        const v1 =  new Vector2D(157.5, 207);
+        const v2 = v1.toObject();
+
+        assert.equal(v1.getX(), v2.x);
+        assert.equal(v1.getY(), v2.y);
     });
 });
