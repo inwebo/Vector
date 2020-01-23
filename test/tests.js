@@ -304,6 +304,19 @@ describe('Vector operations', () => {
             assert.equal(Vector2D.equals(v1, v2), true);
         });
     });
+
+    /**
+     * @todo
+     */
+    describe('let v1 = new Vector2D(10.05, 9.59);v1.round();', () => {
+        it(' Vector2D.equals(v1, v2)', () => {
+            let v1 = new Vector2D(10.05, 9.59);
+            v1.round();
+
+            assert.equal(v1.getX() === 10, true);
+            assert.equal(v1.getY() === 9, true);
+        });
+    });
 });
 
 
