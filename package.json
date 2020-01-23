@@ -1,6 +1,6 @@
 {
   "name": "vector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple E6 class for common vectors operations",
   "main": "src/index.js",
   "keywords": [
@@ -21,6 +21,9 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
+  "contributors": [
+    "Inwebo veritas <githuv@inwebo.net> (https://github.com/inwebo/Vector)"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:inwebo/Vector.git"
