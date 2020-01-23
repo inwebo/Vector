@@ -4,6 +4,20 @@ const assert = require('assert');
 const expect = require('chai').expect;
 const chai = require('chai');
 
+describe('Vector set', () => {
+    describe('let v = new Vector2D()', () => {
+        let v = new Vector2D();
+
+        v.set(154.458, 55);
+
+        it('v.getX() = 154.458', () => {
+            assert.equal(v.getX(), 154.458);
+        });
+        it('v.getY() = 55', () => {
+            assert.equal(v.getY(), 55);
+        });
+    });
+});
 
 describe('Vector contructor', () => {
 
@@ -147,6 +161,15 @@ describe('Vector contructor', () => {
 });
 
 describe('Vector zeroing', () => {
+
+    describe('let v = new Vector2D(0, 0); v.isZero(v);', () => {
+        let v = new Vector2D(0, 0);
+
+        it('v.isZero() = 0', () => {
+            assert.equal(v.isZero(), true);
+        });
+    });
+
     describe('let v = new Vector2D(15, 50); Vector2D.zero(v);', () => {
         let v = new Vector2D(15, 50);
         Vector2D.zero(v);
@@ -160,10 +183,10 @@ describe('Vector zeroing', () => {
     });
 
     describe('let v = new Vector2D(15, 50); Vector2D.zero(v); v.isZero()', () => {
-        let v = new Vector2D(15, 50);
-        Vector2D.zero(v);
+        let v = new Vector2D(0, 0);
+        v.zero(v);
 
-        it('v.isZero()', () => {
+        it('v.zero()', () => {
             assert.equal(v.getX(), 0);
             assert.equal(v.getY(), 0);
         });
@@ -314,7 +337,7 @@ describe('Vector operations', () => {
             v1.round();
 
             assert.equal(v1.getX() === 10, true);
-            assert.equal(v1.getY() === 9, true);
+            assert.equal(v1.getY() === 10, true);
         });
     });
 });
