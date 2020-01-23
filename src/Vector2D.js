@@ -279,6 +279,7 @@ export default class Vector2D {
     }
 
     /**
+     * @todo
      * @return {number}
      */
     magnitudeSq() {
