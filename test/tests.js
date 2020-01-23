@@ -319,4 +319,293 @@ describe('Exceptions bad args', () => {
                 .throw();
         });
     });
+
+    describe('let v1 = []; Vector2D.isZero(v1)', () => {
+        it('throw error', () => {
+            let v1 = '';
+
+            expect(() => {
+                Vector2D.isZero(v1)
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = []; Vector2D.negative(v1)', () => {
+        it('throw error', () => {
+            let v1 = '';
+
+            expect(() => {
+                Vector2D.negative(v1)
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.add(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.add(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.add(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.add(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.substract(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.substract(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.substract(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.substract(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.multiply(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.multiply(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.multiply(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.multiply(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.divide(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.divide(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.divide(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.divide(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.equals(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.equals(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.divide(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.equals(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.dot(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.dot(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.dot(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.dot(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.cross(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.cross(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.cross(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.magnitude(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = []; Vector2D.magnitudeSq(v1);', () => {
+        it('throw error', () => {
+            let v1 = [];
+
+            expect(() => {
+                Vector2D.magnitudeSq(v1);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; Vector2D.length(v1, v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                Vector2D.length(v1, v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distanceX(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distanceX(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distanceXAbs(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distanceXAbs(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distanceY(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distanceY(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distanceYAbs(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distanceYAbs(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distance(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distance(v2);
+            })
+                .to
+                .throw();
+        });
+    });
+
+    describe('let v1 = new Vector2D();let v2 = []; v1.distanceSq(v2);', () => {
+        it('throw error', () => {
+            let v1 = new Vector2D();let v2 = [];
+
+            expect(() => {
+                v1.distanceSq(v2);
+            })
+                .to
+                .throw();
+        });
+    });
 });
