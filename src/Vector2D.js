@@ -19,10 +19,13 @@ export default class Vector2D {
     /**
      * @param {number} x
      * @param {number} y
+     * @return {Vector2D}
      */
     set(x, y) {
         this._x = x;
         this._y = y;
+
+        return this;
     }
     // endregion
 
@@ -60,9 +63,14 @@ export default class Vector2D {
     }
     // endregion constructors
 
+    /**
+     * @return {Vector2D}
+     */
     zero() {
         this._x = 0;
         this._y = 0;
+
+        return this;
     }
 
     /**
@@ -96,6 +104,8 @@ export default class Vector2D {
     negative() {
         this._x = -this._x;
         this._y = -this._y;
+
+        return this;
     }
 
     /**
@@ -109,11 +119,14 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
+     * @return {Vector2D}
      */
     add(vector) {
         Vector2DValidator.validate(vector);
         this._x = this.getX() + vector.getX();
         this._y = this.getY() + vector.getY();
+
+        return this;
     }
 
     /**
@@ -128,11 +141,14 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
+     * @return {Vector2D}
      */
     substract(vector) {
         Vector2DValidator.validate(vector);
         this._x = this.getX() - vector.getX();
         this._y = this.getY() - vector.getY();
+
+        return this;
     }
 
     /**
@@ -147,11 +163,14 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
+     * @return {Vector2D}
      */
     multiply(vector) {
         Vector2DValidator.validate(vector);
         this._x = this.getX() * vector.getX();
         this._y = this.getY() * vector.getY();
+
+        return this;
     }
 
     /**
@@ -172,6 +191,8 @@ export default class Vector2D {
         Vector2DValidator.validate(vector);
         this._x = this.getX() / vector.getX();
         this._y = this.getY() / vector.getY();
+
+        return this;
     }
 
     /**
@@ -241,7 +262,6 @@ export default class Vector2D {
     }
 
     /**
-     * @todo
      * @return {number}
      */
     magnitude() {
@@ -350,18 +370,24 @@ export default class Vector2D {
     // region rotate
     /**
      * @param {Number} radians
+     * @return {Vector2D}
      */
     rotate(radians) {
         this._x = (this.getX() * Math.cos(radians)) - (this.getY() * Math.sin(radians));
         this._y = (this.getX() * Math.cos(radians)) - (this.getY() * Math.cos(radians));
+
+        return this;
     }
 
     /**
      * @param {Number} degrees
+     * @return {Vector2D}
      */
     rotateDegrees(degrees) {
         this._x = (this.getX() * Math.cos(Math.radiansToDegrees(degrees))) - (this.getY() * Math.sin(Math.radiansToDegrees(degrees)));
         this._y = (this.getX() * Math.cos(Math.radiansToDegrees(degrees))) - (this.getY() * Math.cos(Math.radiansToDegrees(degrees)));
+
+        return this;
     }
 
     /**
@@ -414,11 +440,14 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
+     * @return {Vector2D}
      */
     copy(vector) {
         Vector2DValidator.validate(vector);
         this._x = vector.getX();
         this._y = vector.getY();
+
+        return this;
     }
     // endregion
 }
