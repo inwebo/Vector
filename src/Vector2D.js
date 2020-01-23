@@ -262,7 +262,7 @@ export default class Vector2D {
      * @return {number}
      */
     magnitudeSq() {
-        return this.getX() * this.getX() + this.getY() * this.getY();
+        return Math.pow(this.getX(), 2) + Math.pow(this.getY(), 2);
     }
 
     /**
@@ -271,7 +271,7 @@ export default class Vector2D {
      */
     static magnitudeSq(vector) {
         Vector2DValidator.validate(vector);
-        return vector.getX() * vector.getX() + vector.getY() * vector.getY();
+        return Math.pow(vector.getX(), 2) + Math.pow(vector.getY(), 2);
     }
 
     /**
@@ -395,6 +395,13 @@ export default class Vector2D {
         return this.toArray().join(separator);
     }
 
+    /**
+     * @return {Object}
+     */
+    toObject() {
+        return {x: this.getX(), y: this.getY()};
+    }
+
     round() {
         this._x = Math.round(this._x);
         this._y = Math.round(this._y);
@@ -408,7 +415,7 @@ export default class Vector2D {
     /**
      * @param {Vector2D} vector
      */
-    merge(vector) {
+    copy(vector) {
         Vector2DValidator.validate(vector);
         this._x = vector.getX();
         this._y = vector.getY();
