@@ -3,6 +3,18 @@ Simple ES6 2D vector representation.
 
 ## Installation
 
+```shell script
+yarn add @inwebo/vector
+```
+
+In the application :
+
+```javascript
+import Vector2D from "@inwebo/vector"
+```
+
+See [Vector2D.js](./src/Vector2D.js) for more infos.
+
 ## Tests
 ```shell script
 yarn test
