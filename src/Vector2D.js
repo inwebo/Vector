@@ -63,60 +63,7 @@ export default class Vector2D {
     }
     // endregion constructors
 
-    /**
-     * @return {Vector2D}
-     */
-    zero() {
-        this._x = 0;
-        this._y = 0;
-
-        return this;
-    }
-
-    /**
-     * @param {Vector2D} vector
-     */
-    static zero(vector) {
-        Vector2DValidator.validate(vector);
-        vector._x = 0;
-        vector._y = 0;
-    }
-
-    /**
-     * @return {boolean|boolean}
-     */
-    isZero() {
-        return this.getX() === 0 && this.getY() === 0;
-    }
-
-    /**
-     * @param {Vector2D} vector
-     * @return {boolean|boolean}
-     */
-    static isZero(vector) {
-        Vector2DValidator.validate(vector);
-        return vector.getX() === 0 && vector.getY() === 0;
-    }
-
-    /**
-     * @return {Vector2D}
-     */
-    negative() {
-        this._x = -this._x;
-        this._y = -this._y;
-
-        return this;
-    }
-
-    /**
-     * @param {Vector2D} vector
-     * @return {Vector2D}
-     */
-    static negative(vector) {
-        Vector2DValidator.validate(vector);
-        return new Vector2D(-vector.getX(), -vector.getY());
-    }
-
+    // region products
     /**
      * @param {Vector2D} vector
      * @return {Vector2D}
@@ -137,6 +84,29 @@ export default class Vector2D {
     static add(vector1, vector2) {
         Vector2DValidator.validate(vector1, vector2);
         return new Vector2D(vector1.getX() + vector2.getX(), vector1.getY() + vector2.getY());
+    }
+
+    /**
+     * @param {Number} scalar
+     * @return {Vector2D}
+     */
+    addScalar(scalar) {
+        this._x += scalar;
+        this._y += scalar;
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @param {Number} scalar
+     * @return {Vector2D}
+     */
+    static addScalar(vector, scalar) {
+        vector._x += scalar;
+        vector._y += scalar;
+
+        return vector;
     }
 
     /**
@@ -206,25 +176,6 @@ export default class Vector2D {
     }
 
     /**
-     * @param {Vector2D} vector
-     * @return {boolean}
-     */
-    equals(vector) {
-        Vector2DValidator.validate(vector);
-        return this.getX() === vector.getX() && this.getY() === vector.getY();
-    }
-
-    /**
-     * @param {Vector2D} vector1
-     * @param {Vector2D} vector2
-     * @return {boolean}
-     */
-    static equals(vector1, vector2) {
-        Vector2DValidator.validate(vector1, vector2);
-        return vector1.getX() === vector2.getX() && vector1.getY() === vector2.getY();
-    }
-
-    /**
      * @see https://en.wikipedia.org/wiki/Dot_product
      * @param {Vector2D} vector
      * @return {number} Dot product
@@ -279,7 +230,6 @@ export default class Vector2D {
     }
 
     /**
-     * @todo
      * @return {number}
      */
     magnitudeSq() {
@@ -293,6 +243,164 @@ export default class Vector2D {
     static magnitudeSq(vector) {
         Vector2DValidator.validate(vector);
         return Math.pow(vector.getX(), 2) + Math.pow(vector.getY(), 2);
+    }
+    // endregion
+
+
+    // region rotate
+    /**
+     * @return {number}
+     */
+    horizontalAngle() {
+        return Math.atan2(this.y, this.x);
+    };
+
+    /**
+     * @return {number}
+     */
+    angle() {
+        return this.horizontalAngle();
+    }
+
+    /**
+     * @param {number} radians
+     * @return {Vector2D}
+     */
+    rotate(radians) {
+        this._x = (this.getX() * Math.cos(radians)) - (this.getY() * Math.sin(radians));
+        this._y = (this.getX() * Math.sin(radians)) + (this.getY() * Math.cos(radians));
+
+        return this;
+    }
+
+    /**
+     * @param {Number} degrees
+     * @return {Vector2D}
+     */
+    rotateDegrees(degrees) {
+        this.rotate(Math.degreesToRadians(degrees));
+        return this;
+    }
+
+    /**
+     * @param {Number} radians
+     */
+    rotateBy(radians) {
+        return this.rotate(this.angle() + radians);
+    }
+
+    /**
+     * @param {Number} radians
+     */
+    rotateByDegrees(radians) {
+        return this.rotateBy(this.angle() + Math.radiansToDegrees(radians));
+    }
+    // endregion
+
+    // region utilities
+    /**
+     * @return {Vector2D}
+     */
+    clone() {
+        return new Vector2D(this.getX(), this.getY())
+    }
+
+    /**
+     * @return {number[]}
+     */
+    toArray() {
+        return [this.getX(), this.getY()];
+    }
+
+    /**
+     * @param {string} separator
+     * @return {string}
+     */
+    toString(separator = ',') {
+        return this.toArray().join(separator);
+    }
+
+    /**
+     * @return {Object}
+     */
+    toObject() {
+        return {x: this.getX(), y: this.getY()};
+    }
+
+    round() {
+        this._x = Math.round(this._x);
+        this._y = Math.round(this._y);
+    }
+
+    floor() {
+        this._x = Math.floor(this._x);
+        this._y = Math.floor(this._y);
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {Vector2D}
+     */
+    copy(vector) {
+        Vector2DValidator.validate(vector);
+        this._x = vector.getX();
+        this._y = vector.getY();
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    equals(vector) {
+        Vector2DValidator.validate(vector);
+        return this.getX() === vector.getX() && this.getY() === vector.getY();
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {boolean}
+     */
+    static equals(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
+        return vector1.getX() === vector2.getX() && vector1.getY() === vector2.getY();
+    }
+
+    /**
+     * @return {Vector2D}
+     */
+    zero() {
+        this._x = 0;
+        this._y = 0;
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     */
+    static zero(vector) {
+        Vector2DValidator.validate(vector);
+        vector._x = 0;
+        vector._y = 0;
+    }
+
+    /**
+     * @return {boolean|boolean}
+     */
+    isZero() {
+        return this.getX() === 0 && this.getY() === 0;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {boolean|boolean}
+     */
+    static isZero(vector) {
+        Vector2DValidator.validate(vector);
+        return vector.getX() === 0 && vector.getY() === 0;
     }
 
     /**
@@ -313,6 +421,44 @@ export default class Vector2D {
         Vector2DValidator.validate(vector1, vector2);
         return Vector2D.magnitude(vector1, vector2);
     }
+
+    /**
+     * @return {Vector2D}
+     */
+    negative() {
+        this._x = -this._x;
+        this._y = -this._y;
+
+        return this;
+    }
+
+    /**
+     * @return {Vector2D}
+     */
+    negativeX() {
+        this._x = -this._x;
+
+        return this;
+    }
+
+    /**
+     * @return {Vector2D}
+     */
+    negativeY() {
+        this._y = -this._y;
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {Vector2D}
+     */
+    static negative(vector) {
+        Vector2DValidator.validate(vector);
+        return new Vector2D(-vector.getX(), -vector.getY());
+    }
+
 
     /**
      * @param {Vector2D} vector
@@ -366,89 +512,6 @@ export default class Vector2D {
     distanceSq(vector) {
         Vector2DValidator.validate(vector);
         return this.distanceX(vector) * this.distanceX(vector) + this.distanceY(vector) * this.distanceY(vector);1
-    }
-
-    // region rotate
-    /**
-     * @param {Number} radians
-     * @return {Vector2D}
-     */
-    rotate(radians) {
-        this._x = (this.getX() * Math.cos(radians)) - (this.getY() * Math.sin(radians));
-        this._y = (this.getX() * Math.cos(radians)) - (this.getY() * Math.cos(radians));
-
-        return this;
-    }
-
-    /**
-     * @param {Number} degrees
-     * @return {Vector2D}
-     */
-    rotateDegrees(degrees) {
-        this._x = (this.getX() * Math.cos(Math.radiansToDegrees(degrees))) - (this.getY() * Math.sin(Math.radiansToDegrees(degrees)));
-        this._y = (this.getX() * Math.cos(Math.radiansToDegrees(degrees))) - (this.getY() * Math.cos(Math.radiansToDegrees(degrees)));
-
-        return this;
-    }
-
-    /**
-     * @param {Number} radians
-     */
-    rotateBy(radians) {
-
-    }
-    // endregion
-
-    // region utility
-    /**
-     * @return {Vector2D}
-     */
-    clone() {
-        return new Vector2D(this.getX(), this.getY())
-    }
-
-    /**
-     * @return {number[]}
-     */
-    toArray() {
-        return [this.getX(), this.getY()];
-    }
-
-    /**
-     * @param {string} separator
-     * @return {string}
-     */
-    toString(separator = ',') {
-        return this.toArray().join(separator);
-    }
-
-    /**
-     * @return {Object}
-     */
-    toObject() {
-        return {x: this.getX(), y: this.getY()};
-    }
-
-    round() {
-        this._x = Math.round(this._x);
-        this._y = Math.round(this._y);
-    }
-
-    floor() {
-        this._x = Math.floor(this._x);
-        this._y = Math.floor(this._y);
-    }
-
-    /**
-     * @param {Vector2D} vector
-     * @return {Vector2D}
-     */
-    copy(vector) {
-        Vector2DValidator.validate(vector);
-        this._x = vector.getX();
-        this._y = vector.getY();
-
-        return this;
     }
     // endregion
 }
