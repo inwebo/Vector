@@ -1,6 +1,6 @@
 {
   "name": "@inwebo/vector",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple E6 class for common vectors operations",
   "main": "src/index.js",
   "keywords": [
