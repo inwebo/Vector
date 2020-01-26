@@ -3,10 +3,30 @@ import Vector2DValidator from "./Vector2DValidator";
 export default class Vector2D {
     // region getters/setters
     /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    setX(number) {
+        this._x = number;
+
+        return this;
+    }
+
+    /**
      * @return {number}
      */
     getX() {
         return this._x;
+    }
+
+    /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    setY(number) {
+        this._y = number;
+
+        return this;
     }
 
     /**
@@ -176,6 +196,27 @@ export default class Vector2D {
     }
 
     /**
+     * @param {number} scalar
+     * @return {Vector2D}
+     */
+    divideScalar(scalar) {
+        this._x = this.getX() / scalar;
+        this._y = this.getY() / scalar;
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static divide(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
+        return new Vector2D(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY());
+    }
+
+    /**
      * @see https://en.wikipedia.org/wiki/Dot_product
      * @param {Vector2D} vector
      * @return {number} Dot product
@@ -298,6 +339,35 @@ export default class Vector2D {
     // endregion
 
     // region utilities
+    /**
+     * @param {Vector2D} min
+     * @param {Vector2D} max
+     * @return {Vector2D}
+     */
+    clamp(min, max) {
+        Vector2DValidator.validate(vector1);
+        Vector2DValidator.validate(vector2);
+
+        if(this._x < min.getX()) {
+            this._x = min.getX();
+        }
+
+        if(this._x > max.getY()) {
+            this._x = max.getY();
+        }
+
+        if(this._y < min.getY()) {
+            this._y = min.getY();
+        }
+
+        if(this._y > max.getY()) {
+            this._y = max.getY();
+        }
+
+        return this;
+    }
+
+
     /**
      * @return {Vector2D}
      */
