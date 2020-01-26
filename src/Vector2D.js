@@ -541,6 +541,15 @@ export default class Vector2D {
 
     /**
      * @param {Vector2D} vector
+     * @return {Vector2D}
+     */
+    distanceAbs(vector) {
+        Vector2DValidator.validate(vector);
+        return new Vector2D(this.distanceXAbs(vector), this.distanceYAbs(vector));
+    }
+
+    /**
+     * @param {Vector2D} vector
      * @return {number}
      */
     distanceXAbs(vector) {
