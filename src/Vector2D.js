@@ -42,8 +42,8 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     set(x, y) {
-        this._x = x;
-        this._y = y;
+        this.setX(x);
+        this.setY(y);
 
         return this;
     }
@@ -78,8 +78,8 @@ export default class Vector2D {
      * @param {number} y
      */
     constructor(x = 0, y = 0) {
-        this._x = x;
-        this._y = y;
+        this.setX(x);
+        this.setY(y);
     }
     // endregion constructors
 
@@ -90,8 +90,28 @@ export default class Vector2D {
      */
     add(vector) {
         Vector2DValidator.validate(vector);
-        this._x = this.getX() + vector.getX();
-        this._y = this.getY() + vector.getY();
+        this.setX(this.getX() + vector.getX());
+        this.setY(this.getY() + vector.getY());
+
+        return this;
+    }
+
+    /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    addX(number) {
+        this.setX(this.getX() + number);
+
+        return this;
+    }
+
+    /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    addY(number) {
+        this.setY(this.getY() + number);
 
         return this;
     }
@@ -107,12 +127,32 @@ export default class Vector2D {
     }
 
     /**
-     * @param {Number} scalar
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static addX(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
+        return new Vector2D(vector1.getX() + vector2.getX(), vector1.getY());
+    }
+
+    /**
+     * @param {Vector2D} vector1
+     * @param {Vector2D} vector2
+     * @return {Vector2D}
+     */
+    static addY(vector1, vector2) {
+        Vector2DValidator.validate(vector1, vector2);
+        return new Vector2D(vector1.getX(), vector1.getY() + vector2.getY());
+    }
+
+    /**
+     * @param {number} scalar
      * @return {Vector2D}
      */
     addScalar(scalar) {
-        this._x += scalar;
-        this._y += scalar;
+        this.addX(scalar);
+        this.addY(scalar);
 
         return this;
     }
@@ -123,10 +163,31 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     static addScalar(vector, scalar) {
-        vector._x += scalar;
-        vector._y += scalar;
+        Vector2DValidator.validate(vector);
+        vector.addX(scalar);
+        vector.addY(scalar);
 
         return vector;
+    }
+
+    /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    substractScalarX(number) {
+        this.setX(this.getX() - number);
+
+        return this;
+    }
+
+    /**
+     * @param {number} number
+     * @return {Vector2D}
+     */
+    substractScalarY(number) {
+        this.setY(this.getY() - number);
+
+        return this;
     }
 
     /**
@@ -135,8 +196,8 @@ export default class Vector2D {
      */
     substract(vector) {
         Vector2DValidator.validate(vector);
-        this._x = this.getX() - vector.getX();
-        this._y = this.getY() - vector.getY();
+        this.substractScalarX(vector.getX());
+        this.substractScalarY(vector.getY());
 
         return this;
     }
@@ -157,8 +218,30 @@ export default class Vector2D {
      */
     multiply(vector) {
         Vector2DValidator.validate(vector);
-        this._x = this.getX() * vector.getX();
-        this._y = this.getY() * vector.getY();
+        this.multiplyX(vector);
+        this.multiplyY(vector);
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {Vector2D}
+     */
+    multiplyX(vector) {
+        Vector2DValidator.validate(vector);
+        this.setX(this.getX() * vector.getX());
+
+        return this;
+    }
+
+    /**
+     * @param {Vector2D} vector
+     * @return {Vector2D}
+     */
+    multiplyY(vector) {
+        Vector2DValidator.validate(vector);
+        this.setY(this.getY() * vector.getY());
 
         return this;
     }
@@ -186,22 +269,33 @@ export default class Vector2D {
     }
 
     /**
-     * @param {Vector2D} vector1
-     * @param {Vector2D} vector2
+     * @param {number} scalar
      * @return {Vector2D}
      */
-    static divide(vector1, vector2) {
-        Vector2DValidator.validate(vector1, vector2);
-        return new Vector2D(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY());
+    divideScalar(scalar) {
+        this.setX(this.getX() / scalar);
+        this.setY(this.getY() / scalar);
+
+        return this;
     }
 
     /**
      * @param {number} scalar
      * @return {Vector2D}
      */
-    divideScalar(scalar) {
-        this._x = this.getX() / scalar;
-        this._y = this.getY() / scalar;
+    divideScalarX(scalar) {
+        const result = this.getX() / scalar;
+        this.setX(result);
+
+        return this;
+    }
+
+    /**
+     * @param {number} scalar
+     * @return {Vector2D}
+     */
+    divideScalarY(scalar) {
+        this.setY(this.getY() / scalar);
 
         return this;
     }
@@ -293,7 +387,7 @@ export default class Vector2D {
      * @return {number}
      */
     horizontalAngle() {
-        return Math.atan2(this.y, this.x);
+        return Math.atan2(this.getY(), this.getX());
     };
 
     /**
@@ -342,27 +436,49 @@ export default class Vector2D {
     /**
      * @param {Vector2D} min
      * @param {Vector2D} max
+     * @param {boolean} strict
      * @return {Vector2D}
      */
-    clamp(min, max) {
-        Vector2DValidator.validate(vector1);
-        Vector2DValidator.validate(vector2);
+    clamp(min, max, strict = true) {
+        Vector2DValidator.validate(min);
+        Vector2DValidator.validate(max);
 
-        if(this._x < min.getX()) {
-            this._x = min.getX();
+        if(strict === true) {
+            if(this.getX() < min.getX()) {
+                this.setX(min.getX());
+            }
+
+            if(this.getX() > max.getY()) {
+                this.setX(max.getY());
+            }
+
+            if(this.getY() < min.getY()) {
+                this.setY(min.getY());
+            }
+
+            if(this.getY() > max.getY()) {
+                this.setY(max.getY());
+            }
         }
 
-        if(this._x > max.getY()) {
-            this._x = max.getY();
+        if(strict === false) {
+            if(this.getX() <= min.getX()) {
+                this.setX(min.getX());
+            }
+
+            if(this.getX() >= max.getY()) {
+                this.setX(max.getY());
+            }
+
+            if(this.getY() <= min.getY()) {
+                this.setY(min.getY());
+            }
+
+            if(this.getY() >= max.getY()) {
+                this.setY(max.getY());
+            }
         }
 
-        if(this._y < min.getY()) {
-            this._y = min.getY();
-        }
-
-        if(this._y > max.getY()) {
-            this._y = max.getY();
-        }
 
         return this;
     }
@@ -398,13 +514,13 @@ export default class Vector2D {
     }
 
     round() {
-        this._x = Math.round(this._x);
-        this._y = Math.round(this._y);
+        this.setX(Math.round(this._x));
+        this.setY(Math.round(this._y));
     }
 
     floor() {
-        this._x = Math.floor(this._x);
-        this._y = Math.floor(this._y);
+        this.setX(Math.floor(this._x));
+        this.setY(Math.floor(this._y));
     }
 
     /**
@@ -413,8 +529,8 @@ export default class Vector2D {
      */
     copy(vector) {
         Vector2DValidator.validate(vector);
-        this._x = vector.getX();
-        this._y = vector.getY();
+        this.setX(vector.getX());
+        this.setY(vector.getY());
 
         return this;
     }
@@ -442,8 +558,8 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     zero() {
-        this._x = 0;
-        this._y = 0;
+        this.setX(0);
+        this.setY(0);
 
         return this;
     }
@@ -496,8 +612,8 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     negative() {
-        this._x = -this._x;
-        this._y = -this._y;
+        this.setX(-this.getX());
+        this.setY(-this.getY());
 
         return this;
     }
@@ -506,7 +622,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     negativeX() {
-        this._x = -this._x;
+        this.setX(-this.getX());
 
         return this;
     }
@@ -515,7 +631,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     negativeY() {
-        this._y = -this._y;
+        this.setY(-this.getY());
 
         return this;
     }
@@ -590,7 +706,7 @@ export default class Vector2D {
      */
     distanceSq(vector) {
         Vector2DValidator.validate(vector);
-        return this.distanceX(vector) * this.distanceX(vector) + this.distanceY(vector) * this.distanceY(vector);1
+        return this.distanceX(vector) * this.distanceX(vector) + this.distanceY(vector) * this.distanceY(vector);
     }
     // endregion
 }

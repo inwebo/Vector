@@ -660,6 +660,26 @@ describe('Exceptions bad args', () => {
                 .throw();
         });
     });
+
+    describe('const v1 =  new Vector2D();const scalar =  3; v1.divideScalarX(scalar);', () => {
+        it('throw error', () => {
+            const v1     =  new Vector2D(12,0);
+            const scalar =  3;
+            v1.divideScalarX(scalar);
+
+            assert.equal(v1.getX(), 4);
+        });
+    });
+
+    describe('const v1 =  new Vector2D();const scalar =  3; v1.divideScalarY(scalar);', () => {
+        it('throw error', () => {
+            const v1     =  new Vector2D(0,12);
+            const scalar =  3;
+            v1.divideScalarY(scalar);
+
+            assert.equal(v1.getY(), 4);
+        });
+    });
 });
 
 describe('Utilities', () => {

@@ -15,6 +15,8 @@ import Vector2D from "@inwebo/vector"
 
 See [Vector2D.js](./src/Vector2D.js) for more infos.
 
+## Behavior
+
 ## Tests
 ```shell script
 yarn test
