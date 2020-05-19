@@ -28,4 +28,4 @@ yarn test
 * [victor.js](http://victorjs.org/)
 * [Graphics Gems Repository](http://www.realtimerendering.com/resources/GraphicsGems/)
 * [https://evanw.github.io/lightgl.js/docs/vector.html](https://evanw.github.io/lightgl.js/docs/vector.html)
-* [https://developer.mozilla.org/fr/docs/Web/API/Performance/now] (https://developer.mozilla.org/fr/docs/Web/API/Performance/now)
+* [https://developer.mozilla.org/fr/docs/Web/API/Performance/now](https://developer.mozilla.org/fr/docs/Web/API/Performance/now)
