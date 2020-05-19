@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        vector: './src/index.js',
+        main: './src/index.js',
         test: './test/tests.js',
     },
     output: {
