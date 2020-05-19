@@ -2,8 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        main: './src/index.js',
-        test: './test/tests.js',
+        main: './src/index.js'
     },
     output: {
         filename: '[name].min.js',
