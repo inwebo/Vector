@@ -683,6 +683,44 @@ describe('Exceptions bad args', () => {
 });
 
 describe('Utilities', () => {
+
+    describe('const v1 =  new Vector2D(0, 0);const v2 =  new Vector2D(10, 10); const v3 = new Vector2d(5,5);', () => {
+        const v1 = new Vector2D(0, 0);
+        const v2 = new Vector2D(10, 10);
+        const v3 = new Vector2D(5, 5);
+
+        assert.equal(v3.xlt(v2), true);
+        assert.equal(v3.ylt(v2), true);
+
+        assert.equal(v3.xgt(v1), true);
+        assert.equal(v3.ygt(v1), true);
+    });
+
+    describe('const v1 =  new Vector2D(0, 0);const v2 =  new Vector2D(10, 10); const v3 = new Vector2d(5,5);', () => {
+        const v1 = new Vector2D(0, 0);
+        const v2 = new Vector2D(10, 10);
+        const v3 = new Vector2D(5, 5);
+
+        assert.equal(v3.xgt(v2), false);
+        assert.equal(v3.ygt(v2), false);
+
+        assert.equal(v3.xlt(v1), false);
+        assert.equal(v3.ylt(v1), false);
+    });
+
+    describe('const v1 =  new Vector2D(0, 0);const v2 =  new Vector2D(10, 10); const v3 = new Vector2d(0,10);', () => {
+        const v1 = new Vector2D(0, 0);
+        const v2 = new Vector2D(10, 10);
+        const v3 = new Vector2D(0, 10);
+
+        assert.equal(v3.xle(v2), true);
+        assert.equal(v3.yle(v2), true);
+
+        assert.equal(v3.xge(v1), true);
+        assert.equal(v3.yge(v1), true);
+    });
+
+
     describe('const v1 =  new Vector2D();const v2 =  new Vector2D(1, 1); v1.copy(v2);', () => {
         const v1 = new Vector2D();
         const v2 = new Vector2D(1, 1);

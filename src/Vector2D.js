@@ -434,6 +434,126 @@ export default class Vector2D {
 
     // region utilities
     /**
+     * X strictly less
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    xlt(vector) {
+        return this.getX() < vector.getX();
+    }
+
+    /**
+     * Y strictly less
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    ylt(vector) {
+        return this.getY() < vector.getY();
+    }
+
+    /**
+     * Less
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    lt(vector) {
+        return this.xlt(vector) && this.ylt(vector);
+    }
+
+    /**
+     * X less or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    xle(vector) {
+        return this.getX() <= vector.getX();
+    }
+
+    /**
+     * Y less or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    yle(vector) {
+        return this.getY() <= vector.getY();
+    }
+
+    /**
+     * Less or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    le(vector) {
+        return this.xle(vector) && this.yle(vector);
+    }
+
+    /**
+     * X strictly greater
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    xgt(vector) {
+        return this.getX() > vector.getX();
+    }
+
+    /**
+     * Y strictly greater
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    ygt(vector) {
+        return this.getY() > vector.getY();
+    }
+
+    /**
+     * Greater
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    gt(vector) {
+        return this.xgt(vector) && this.ygt(vector);
+    }
+
+    /**
+     * X greater or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    xge(vector) {
+        return this.getX() >= vector.getX();
+    }
+
+    /**
+     * Y greater or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    yge(vector) {
+        return this.getY() >= vector.getY();
+    }
+
+    /**
+     * greater or equal
+     *
+     * @param {Vector2D} vector
+     * @return {boolean}
+     */
+    ge(vector) {
+        return this.xle(vector) && this.yle(vector);
+    }
+
+    /**
      * @param {Vector2D} min
      * @param {Vector2D} max
      * @param {boolean} strict
@@ -443,7 +563,7 @@ export default class Vector2D {
         Vector2DValidator.validate(min);
         Vector2DValidator.validate(max);
 
-        if(strict === true) {
+        if(strict) {
             if(this.getX() < min.getX()) {
                 this.setX(min.getX());
             }
@@ -459,9 +579,7 @@ export default class Vector2D {
             if(this.getY() > max.getY()) {
                 this.setY(max.getY());
             }
-        }
-
-        if(strict === false) {
+        } else {
             if(this.getX() <= min.getX()) {
                 this.setX(min.getX());
             }
@@ -479,10 +597,8 @@ export default class Vector2D {
             }
         }
 
-
         return this;
     }
-
 
     /**
      * @return {Vector2D}
