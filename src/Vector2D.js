@@ -824,5 +824,21 @@ export default class Vector2D {
         Vector2DValidator.validate(vector);
         return this.distanceX(vector) * this.distanceX(vector) + this.distanceY(vector) * this.distanceY(vector);
     }
+
+    /**
+     * @return {Vector2D}
+     */
+    normalize() {
+        const length = this.length();
+
+        if (length === 0) {
+            this.setX(1);
+            this.setY(0);
+        } else {
+            this.divide(new Vector2D(length, length));
+        }
+
+        return this;
+    }
     // endregion
 }
