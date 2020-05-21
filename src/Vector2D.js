@@ -225,6 +225,16 @@ export default class Vector2D {
     }
 
     /**
+     * @param {Number} number
+     */
+    multiplyScalar(number) {
+        this.setX(this.getX() * number);
+        this.setY(this.getY() * number);
+
+        return this;
+    }
+
+    /**
      * @param {Vector2D} vector
      * @return {Vector2D}
      */
