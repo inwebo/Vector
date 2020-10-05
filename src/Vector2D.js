@@ -1,4 +1,5 @@
 import Vector2DValidator from "./Vector2DValidator";
+import MathExtension from "./MathExtension";
 
 export default class Vector2D {
     // region getters/setters
@@ -423,7 +424,7 @@ export default class Vector2D {
      * @return {Vector2D}
      */
     rotateDegrees(degrees) {
-        this.rotate(Math.degreesToRadians(degrees));
+        this.rotate(MathExtension.degreesToRadians(degrees));
         return this;
     }
 
@@ -438,7 +439,7 @@ export default class Vector2D {
      * @param {Number} radians
      */
     rotateByDegrees(radians) {
-        return this.rotateBy(this.angle() + Math.radiansToDegrees(radians));
+        return this.rotateBy(this.angle() + MathExtension.radiansToDegrees(radians));
     }
     // endregion
 
