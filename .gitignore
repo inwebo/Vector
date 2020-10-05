@@ -3,4 +3,3 @@
 yarn-error.log
 .nyc_output
 coverage
-dist/test.min.js

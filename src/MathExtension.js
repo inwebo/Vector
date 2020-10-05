@@ -1,13 +1,16 @@
-const DEGREES = 180 / Math.PI;
-
 const MathExtension = {};
+
+/**
+ * @type {number}
+ */
+MathExtension.DEGREES = 180 / Math.PI;
 
 /**
  * @param {number} radians
  * @return {number}
  */
 MathExtension.radiansToDegrees = (radians) => {
-    return radians * DEGREES;
+    return radians * MathExtension.DEGREES;
 };
 
 /**
@@ -15,8 +18,7 @@ MathExtension.radiansToDegrees = (radians) => {
  * @return {number}
  */
 MathExtension.degreesToRadians = (degrees) => {
-    return degrees * DEGREES;
+    return degrees * MathExtension.DEGREES;
 };
-
 
 export default MathExtension;
