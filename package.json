@@ -1,6 +1,6 @@
 {
   "name": "@inwebo/vector",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Simple E6 class for common vectors operations",
   "main": "src/index.js",
   "keywords": [
@@ -18,6 +18,7 @@
     "mocha": "^7.0.0",
     "nyc": "^15.0.0",
     "qunit": "^2.9.3",
+    "standard": "^16.0.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
@@ -32,6 +33,6 @@
     "lodash": "^4.17.15"
   },
   "scripts": {
-    "test": "webpack --mode development && nyc --reporter=html --reporter=text mocha dist/test.min.js"
+    "test": "standard && webpack --mode development && nyc --reporter=html --reporter=text mocha dist/test.min.js"
   }
 }
